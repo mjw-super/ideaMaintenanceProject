@@ -1,8 +1,11 @@
 package com.idea_xmwh.idea_code.app.util;
 
+import com.idea_xmwh.idea_code.app.service.asynTread.AsynThreadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
-import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Future;
 
@@ -12,13 +15,17 @@ import java.util.concurrent.Future;
  * @Author Mengjw
  * @date 2020.09.03 09:02
  */
-@Service
+@Component
 public class ThreadUtil {
-    public void asynThread() throws InterruptedException {
-        this.test1();
-        Future<String> task4 = this.task4();
-        Future<String> task6 = this.task6();
-        this.test2();
+    @Autowired
+    private AsynThreadService asynThreadService;
+
+    @Scheduled(fixedDelay = 5000)
+    public void asynThreadTask() throws InterruptedException {
+        asynThreadService.asynThreadTask1();
+        asynThreadService.asynThreadTask2();
+        asynThreadService.asynThreadTask3();
+        asynThreadService.asynThreadTask4();
     }
     public void test1(){
         System.out.println("test1-------------------");

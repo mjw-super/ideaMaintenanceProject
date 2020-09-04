@@ -1,6 +1,6 @@
 package com.idea_xmwh.idea_code.app.controller;
 
-import com.idea_xmwh.idea_code.app.util.ThreadUtil;
+import com.idea_xmwh.idea_code.app.service.asynTread.AsynThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,17 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/async")
 public class AsyncController {
     @Autowired
-    private ThreadUtil threadUtil;
+    private AsynThreadService asynThreadService;
     @GetMapping("/test")
-    public void demoAsyn(){
+    public String demoAsyn(){
+        String str = "线程开始！！！";
         try {
-            threadUtil.test1();
-            threadUtil.task4();
-            threadUtil.task6();
-            threadUtil.test2();
-//            threadUtil.asynThread();
-        } catch (InterruptedException e) {
+            asynThreadService.asynThreadTask1();
+            asynThreadService.asynThreadTask2();
+            asynThreadService.asynThreadTask3();
+            asynThreadService.asynThreadTask4();
+        } catch (Exception e) {
             e.printStackTrace();
+            str = "线程异常！";
         }
+        return str;
     }
 }
