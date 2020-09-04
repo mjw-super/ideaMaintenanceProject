@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.Future;
+
 /**
  * @Description
  * @ClassName AsyncController
@@ -23,8 +25,15 @@ public class AsyncController {
         try {
             asynThreadService.asynThreadTask1();
             asynThreadService.asynThreadTask2();
-            asynThreadService.asynThreadTask3();
-            asynThreadService.asynThreadTask4();
+            Future<String> asynThreadTask3 = asynThreadService.asynThreadTask3();
+            if(asynThreadTask3.isDone()){
+                System.out.println(asynThreadTask3.get());
+            }
+            if(asynThreadTask3.isCancelled()){
+                System.out.println(asynThreadTask3.get());
+
+            }
+            Future<String> asynThreadTask4 = asynThreadService.asynThreadTask4();
         } catch (Exception e) {
             e.printStackTrace();
             str = "线程异常！";
