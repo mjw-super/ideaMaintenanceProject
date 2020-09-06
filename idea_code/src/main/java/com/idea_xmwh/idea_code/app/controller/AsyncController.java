@@ -19,8 +19,29 @@ import java.util.concurrent.Future;
 public class AsyncController {
     @Autowired
     private AsynThreadService asynThreadService;
-    @GetMapping("/test")
-    public String demoAsyn(){
+    @GetMapping("/startAsyn")
+    public String startAsyn(){
+        String str = "线程开始！！！";
+        try {
+            asynThreadService.asynThreadTask1();
+            asynThreadService.asynThreadTask2();
+            Future<String> asynThreadTask3 = asynThreadService.asynThreadTask3();
+            if(asynThreadTask3.isDone()){
+                System.out.println(asynThreadTask3.get());
+            }
+            if(asynThreadTask3.isCancelled()){
+                System.out.println(asynThreadTask3.get());
+
+            }
+            Future<String> asynThreadTask4 = asynThreadService.asynThreadTask4();
+        } catch (Exception e) {
+            e.printStackTrace();
+            str = "线程异常！";
+        }
+        return str;
+    }
+    @GetMapping("/startAsyn")
+    public String startAsyn1(){
         String str = "线程开始！！！";
         try {
             asynThreadService.asynThreadTask1();
