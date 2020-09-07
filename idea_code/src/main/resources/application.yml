@@ -1,7 +1,16 @@
+
+
 server:
   port: 8081
+
+#ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ï¿½
 spring:
   devtools:
     restart:
-      enabled: true  #ÉèÖÃ¿ªÆôÈÈ²¿Êð
-
+      enabled: true  #ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ï¿½
+      additional-paths: src/main/java #ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
+      exclude: WEB-INF/**
+  freemarker:
+    cache: false    #Ò³ï¿½æ²»ï¿½ï¿½ï¿½Ø»ï¿½ï¿½æ£¬ï¿½Þ¸Ä¼ï¿½Ê±ï¿½ï¿½Ð§
+  application:
+    name: app
