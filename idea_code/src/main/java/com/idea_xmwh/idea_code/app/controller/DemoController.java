@@ -43,4 +43,9 @@ public class DemoController {
         String str = name+"你好啊！！！";
         return str;
     }
+    @GetMapping("/getHelloWord6")
+    public String getHelloWord6(String name){
+        String str = name+"你好啊！！！";
+        return str;
+    }
 }

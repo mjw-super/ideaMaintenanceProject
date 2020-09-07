@@ -22,7 +22,7 @@ public class LogAcpect {
     /**
      * 定义切入点
      */
-    @Pointcut("execution(public * com.tdh.light.spxt.bp.service..*.*(..))")
+    @Pointcut("execution(public * com.idea_xmwh.idea_code.app.service..*.*(..))")
     public void Log() {
     }
 

@@ -1,16 +1,13 @@
-
-
 server:
   port: 8081
 
-#�����Ȳ���
 spring:
   devtools:
     restart:
-      enabled: true  #���ÿ����Ȳ���
-      additional-paths: src/main/java #����Ŀ¼
+      enabled: true
+      additional-paths: src/main/java
       exclude: WEB-INF/**
   freemarker:
-    cache: false    #ҳ�治���ػ��棬�޸ļ�ʱ��Ч
+    cache: false
   application:
     name: app
