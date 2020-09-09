@@ -40,7 +40,7 @@ public class AsyncController {
         }
         return str;
     }
-    @GetMapping("/startAsyn")
+    @GetMapping("/startAsyn1")
     public String startAsyn1(){
         String str = "线程开始！！！";
         try {

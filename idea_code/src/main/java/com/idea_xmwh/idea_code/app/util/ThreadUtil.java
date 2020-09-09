@@ -16,7 +16,7 @@ public class ThreadUtil {
     @Autowired
     private AsynThreadService asynThreadService;
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 50000)
     public void asynThreadTask() throws InterruptedException {
         asynThreadService.asynThreadTask1();
         asynThreadService.asynThreadTask2();
