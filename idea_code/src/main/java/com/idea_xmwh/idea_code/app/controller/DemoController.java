@@ -48,4 +48,19 @@ public class DemoController {
         String str = name+"你好啊！！！";
         return str;
     }
+    @GetMapping("/getHelloWord7")
+    public String getHelloWord7(String name){
+        String str = name+"你好啊！！！";
+        return str;
+    }
+    @GetMapping("/getHelloWord8")
+    public String getHelloWord8(String name){
+        String str = name+"你好啊！！！";
+        return str;
+    }
+    @GetMapping("/getHelloWord")
+    public String getHelloWord(String name){
+        String str = name+"你好啊！！！";
+        return str;
+    }
 }
