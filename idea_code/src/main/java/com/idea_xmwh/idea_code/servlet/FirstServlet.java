@@ -17,7 +17,11 @@ import java.io.IOException;
 public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("拦截器开始。。。。。。");
-        super.doGet(req, resp);
+        System.out.println("doGet===>拦截器开始。。。。。。");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doPost===>拦截器开始。。。。。。");
     }
 }
